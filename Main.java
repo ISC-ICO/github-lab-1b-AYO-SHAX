@@ -8,7 +8,7 @@ public class Main {
         return (int) (Math.random() * 10);
     }
 
-    /**
+    /*
      * Complete the checkCode method to check the guess against the code
      * Print out the apppropriate messages
      * return true if the guess is correct
@@ -16,6 +16,21 @@ public class Main {
      * @return
      */
     public static boolean checkCode(String guess) {
+         //Write the code to set up the candon code to crack here  
+         int correctChar = 0;
+         for (int i = 0; i < guess.length(); i++) {
+            char check = code.charAt(i);
+             if (check == guess.charAt(i)) {
+                 correctChar += 1;
+             }
+         }
+         
+         int correctRightOrder = 0;
+         for (int i = 0; i < code.length(); i++) {
+             if (code.charAt (i) == guess.charAt(i)) {
+                 correctRightOrder += 1;
+             }
+         }
         
         return true;
     }
@@ -25,8 +40,14 @@ public class Main {
         code = "";    
         //Write the code to set the length of the code here
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an Integer: ");
+        codeLength = scanner.nextInt();
+        for (int i = 0; i < codeLength; i++) {
+            code = code + getRandInt();
+        }
+        System.out.println(code);
 
-        //Write the code to set up the candon code to crack here        
+       
     
         //Write code for main loop here
         while (true) {        
